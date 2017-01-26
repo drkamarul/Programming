@@ -1,3 +1,4 @@
+## my testing function
 
 myfunc<-function(a,b, digits=2) { 
   #print data
