@@ -1,0 +1,58 @@
+---
+title: "clear white space"
+author: "Kamarul Imran Musa"
+date: "11/4/2018"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+
+
+```{r, echo=FALSE, message=FALSE}
+library(png)
+library(grid)
+library(magick)
+```
+
+# Fig 1
+
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssvvvvssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssvvssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssv
+
+```{r, echo=FALSE, fig.height = 6, fig.width = 6, fig.cap = "plot without setting the right raster output size"}
+mycat <- readPNG('cat.png')
+grid.raster(mycat)
+```
+
+ssssssssssssssssssssssssssssssssssssssssssvvvvssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+\newpage
+
+```{r, echo=FALSE}
+# imagecat <- image_read(mycat)
+# print(imagecat)
+# 235/400
+# height/width = 0.59
+```
+
+\newpage
+
+# Fig 2
+
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssvvvvssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssvvssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssv
+
+```{r , echo= FALSE, fig.cap = "plot with correct margin, square size", fig.asp=0.59}
+library(png)
+library(grid)
+mycat <- readPNG('cat.png')
+grid.raster(mycat)
+```
+
+ssssssssssssssssssssssssssssssssssssssssssvvvvssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Ref : <https://stackoverflow.com/questions/32748235/how-to-remove-white-space-above-and-below-image-in-r-markdown?answertab=votes#tab-top>
