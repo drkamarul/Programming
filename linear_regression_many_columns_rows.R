@@ -32,8 +32,12 @@ mtcars %>%
   map(summary) %>%
   map_df(broom::tidy) 
 
-# ???? if use both split and select?
-mtcars %>%
-  select(mpg, hp, wt) %>%
-  split(mtcars$cyl) %>%
-  map2(~lm(.x ~ wt, data = .y))
+#################
+
+library(tidyverse)
+library(broom)
+
+names(mtcars)[-1] %>% 
+  set_names() %>% 
+  map(~ lm(as.formula(paste0('mpg ~ ', .x)), data = mtcars)) %>% 
+  map_dfr(., broom::tidy, .id = "variable")
