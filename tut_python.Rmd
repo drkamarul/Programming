@@ -1,0 +1,60 @@
+---
+title: "Practice python Using reticulate package"
+output: html_notebook
+---
+
+# Introduction
+
+For a quick ref go to <https://blog.rstudio.com/2018/10/09/rstudio-1-2-preview-reticulated-python/>
+
+# Install reticulate 
+
+```{r}
+# install.packages('reticulate')
+```
+
+**reticulate** provide the python engine
+
+# A quick tutorial
+
+Now this is the one
+
+```{r}
+library(reticulate)
+Sys.which("python")
+py_config()
+use_condaenv("r-reticulate")
+use_virtualenv("myenv")
+```
+
+We will use the **pandas** for manipulation
+
+```{python}
+import pandas
+flights = pandas.read_csv("flights.csv")
+flights = flights[flights['dest'] == "ORD"]
+flights = flights[['carrier', 'dep_delay', 'arr_delay']]
+flights = flights.dropna()
+print(flights.head())
+
+```
+
+plots using ggplot2
+
+```{r}
+library(ggplot2)
+ggplot(py$flights, aes(carrier, arr_delay)) + geom_point() + geom_jitter()
+```
+
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+t = np.arange(0.0, 2.0, 0.01)
+s = 1 + np.sin(2*np.pi*t)
+plt.plot(t,s)
+
+plt.grid(True)
+plt.show()
+```
+
